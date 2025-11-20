@@ -1,7 +1,10 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+
+// Detecta si el deploy es GitHub Pages
+const isGithubPages = process.env.GITHUB_PAGES === "true";
 
 export default defineConfig({
   plugins: [react()],
-  base: '/Mini-Project1-React/', // 👈 importante: debe tener slash inicial y final
-})
+  base: isGithubPages ? "/Mini-Project1-React/" : "/",
+});
